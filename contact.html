@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Bulk Munchies</title>
+  <meta name="description" content="Contact Bulk Munchies for wholesale snack, candy, and beverage pricing." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo-link">
+      <img src="assets/logo.png" alt="Bulk Munchies Logo" class="logo-img" />
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="wholesale.html">Wholesale</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="nav-button" href="contact.html">Request Pricing</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1>Request wholesale pricing.</h1>
+      <p>
+        Send us your business info and product interest. We’ll follow up with availability and pricing.
+      </p>
+    </div>
+  </section>
+
+  <section class="section contact-section">
+    <div class="container contact-grid">
+      <div>
+        <h2>Wholesale inquiries</h2>
+        <p>
+          Contact Bulk Munchies for snacks, candy, and beverage wholesale availability.
+        </p>
+
+        <div class="contact-list">
+          <p><strong>Email:</strong> <a href="mailto:sales@bulkmunchies.com">sales@bulkmunchies.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:17734130406">773-413-0406</a></p>
+          <p><strong>Website:</strong> bulkmunchies.com</p>
+        </div>
+      </div>
+
+      <form class="contact-form" action="mailto:sales@bulkmunchies.com" method="post" enctype="text/plain">
+        <label>
+          Business Name
+          <input type="text" name="business_name" placeholder="Your store name" />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" placeholder="you@business.com" />
+        </label>
+
+        <label>
+          Phone
+          <input type="tel" name="phone" placeholder="Your phone number" />
+        </label>
+
+        <label>
+          Product Interest
+          <select name="product_interest">
+            <option>Full wholesale catalog</option>
+            <option>Snacks</option>
+            <option>Candy</option>
+            <option>Beverages</option>
+          </select>
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" rows="5" placeholder="Tell us what products you are looking for"></textarea>
+        </label>
+
+        <button class="button primary" type="submit">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/logo.png" alt="Bulk Munchies Logo" class="footer-logo" />
+      <p>Wholesale snacks, candy, and beverages for retailers.</p>
+    </div>
+
+    <div>
+      <p><strong>Bulk Munchies</strong></p>
+      <p><a href="mailto:sales@bulkmunchies.com">sales@bulkmunchies.com</a></p>
+      <p><a href="tel:17734130406">773-413-0406</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

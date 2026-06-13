@@ -71,7 +71,6 @@ const products = [
     color: "linear-gradient(135deg, #f59e0b, #ea580c)",
     description: "Cheddar-style puff snacks for everyday retail sales."
   },
-
   {
     name: "Sour Gummy Belts",
     category: "Candy",
@@ -126,7 +125,6 @@ const products = [
     color: "linear-gradient(135deg, #10b981, #3b82f6)",
     description: "Fruit jelly cups with bright packaging and strong snack appeal."
   },
-
   {
     name: "Classic Cola Soda",
     category: "Beverages",
@@ -184,12 +182,47 @@ const products = [
 ];
 
 const productGrid = document.getElementById("productGrid");
+const featuredGrid = document.getElementById("featuredGrid");
 const filterButtons = document.querySelectorAll(".filter-button");
 const modal = document.getElementById("productModal");
 const modalBody = document.getElementById("modalBody");
 const closeModalButtons = document.querySelectorAll("[data-close-modal]");
 
+function productCard(product) {
+  const card = document.createElement("article");
+  card.className = "product-card";
+  card.setAttribute("tabindex", "0");
+  card.setAttribute("role", "button");
+
+  card.innerHTML = `
+    <div class="product-art" style="background:${product.color}">
+      <div class="${product.type}" data-label="${product.label}" style="background:${product.color}"></div>
+    </div>
+    <div class="product-body">
+      <h3>${product.name}</h3>
+      <p class="product-description">${product.description}</p>
+      <div class="product-meta">
+        <span>${product.category}</span>
+        <span>${product.casePack}</span>
+      </div>
+      <div class="product-cta">View wholesale details</div>
+    </div>
+  `;
+
+  card.addEventListener("click", () => openProductModal(product));
+  card.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openProductModal(product);
+    }
+  });
+
+  return card;
+}
+
 function renderProducts(category = "All") {
+  if (!productGrid) return;
+
   productGrid.innerHTML = "";
 
   const filteredProducts =
@@ -197,41 +230,23 @@ function renderProducts(category = "All") {
       ? products
       : products.filter(product => product.category === category);
 
-  filteredProducts.forEach((product, index) => {
-    const card = document.createElement("article");
-    card.className = "product-card";
-    card.setAttribute("tabindex", "0");
-    card.setAttribute("role", "button");
-    card.setAttribute("aria-label", `View ${product.name}`);
+  filteredProducts.forEach(product => {
+    productGrid.appendChild(productCard(product));
+  });
+}
 
-    card.innerHTML = `
-      <div class="product-art" style="background:${product.color}">
-        <div class="${product.type}" data-label="${product.label}" style="background:${product.color}"></div>
-      </div>
-      <div class="product-body">
-        <h3>${product.name}</h3>
-        <p class="product-description">${product.description}</p>
-        <div class="product-meta">
-          <span>${product.category}</span>
-          <span>${product.casePack}</span>
-        </div>
-        <div class="product-cta">View wholesale details</div>
-      </div>
-    `;
+function renderFeaturedProducts() {
+  if (!featuredGrid) return;
 
-    card.addEventListener("click", () => openProductModal(product));
-    card.addEventListener("keydown", event => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openProductModal(product);
-      }
-    });
-
-    productGrid.appendChild(card);
+  featuredGrid.innerHTML = "";
+  products.slice(0, 8).forEach(product => {
+    featuredGrid.appendChild(productCard(product));
   });
 }
 
 function openProductModal(product) {
+  if (!modal || !modalBody) return;
+
   modalBody.innerHTML = `
     <div class="modal-product">
       <div class="product-art" style="background:${product.color}">
@@ -244,22 +259,10 @@ function openProductModal(product) {
         <p>${product.description}</p>
 
         <div class="modal-details">
-          <div>
-            <strong>Category</strong>
-            <span>${product.category}</span>
-          </div>
-          <div>
-            <strong>Case Pack</strong>
-            <span>${product.casePack}</span>
-          </div>
-          <div>
-            <strong>Pricing</strong>
-            <span>Available upon request</span>
-          </div>
-          <div>
-            <strong>Wholesale</strong>
-            <span>B2B buyers only</span>
-          </div>
+          <div><strong>Category</strong><span>${product.category}</span></div>
+          <div><strong>Case Pack</strong><span>${product.casePack}</span></div>
+          <div><strong>Pricing</strong><span>Available upon request</span></div>
+          <div><strong>Wholesale</strong><span>B2B buyers only</span></div>
         </div>
 
         <a class="button primary" href="mailto:sales@bulkmunchies.com?subject=Wholesale Inquiry - ${encodeURIComponent(product.name)}">
@@ -274,6 +277,7 @@ function openProductModal(product) {
 }
 
 function closeModal() {
+  if (!modal) return;
   modal.classList.remove("open");
   document.body.style.overflow = "";
 }
@@ -291,9 +295,10 @@ closeModalButtons.forEach(button => {
 });
 
 document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && modal.classList.contains("open")) {
+  if (event.key === "Escape" && modal && modal.classList.contains("open")) {
     closeModal();
   }
 });
 
 renderProducts();
+renderFeaturedProducts();

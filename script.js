@@ -300,5 +300,10 @@ document.addEventListener("keydown", event => {
   }
 });
 
-renderProducts();
-renderFeaturedProducts();
+if (document.getElementById("productGrid")) {
+  renderProducts();
+}
+
+if (document.getElementById("featuredGrid")) {
+  renderFeaturedProducts();
+}

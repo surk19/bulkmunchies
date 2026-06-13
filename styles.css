@@ -1,304 +1,765 @@
-const products = [
-  {
-    name: "Spicy Crunch Chips",
-    category: "Snacks",
-    casePack: "12 ct case",
-    label: "CHIPS",
-    type: "pack",
-    color: "linear-gradient(135deg, #ef233c, #ff8a00)",
-    description: "Bold spicy chips packed for retail shelves and snack shops."
-  },
-  {
-    name: "Loaded Nacho Chips",
-    category: "Snacks",
-    casePack: "12 ct case",
-    label: "NACHO",
-    type: "pack",
-    color: "linear-gradient(135deg, #f97316, #ffd84d)",
-    description: "Cheesy nacho-style chips with strong shelf appeal."
-  },
-  {
-    name: "Chili Lime Rings",
-    category: "Snacks",
-    casePack: "24 ct case",
-    label: "LIME",
-    type: "pack",
-    color: "linear-gradient(135deg, #22c55e, #facc15)",
-    description: "Tangy chili lime snack rings for bold flavor customers."
-  },
-  {
-    name: "Hot Corn Sticks",
-    category: "Snacks",
-    casePack: "24 ct case",
-    label: "HOT",
-    type: "pack",
-    color: "linear-gradient(135deg, #dc2626, #7c2d12)",
-    description: "Crunchy corn sticks with a hot seasoning profile."
-  },
-  {
-    name: "Sweet Heat Puffs",
-    category: "Snacks",
-    casePack: "18 ct case",
-    label: "PUFFS",
-    type: "pack",
-    color: "linear-gradient(135deg, #fb7185, #f97316)",
-    description: "Sweet and spicy puffed snacks for impulse snack displays."
-  },
-  {
-    name: "Crunch Mix Party Bag",
-    category: "Snacks",
-    casePack: "8 ct case",
-    label: "MIX",
-    type: "pack",
-    color: "linear-gradient(135deg, #7c3aed, #2563eb)",
-    description: "Share-size crunchy snack mix for retailers and party sections."
-  },
-  {
-    name: "BBQ Crunch Chips",
-    category: "Snacks",
-    casePack: "12 ct case",
-    label: "BBQ",
-    type: "pack",
-    color: "linear-gradient(135deg, #92400e, #f97316)",
-    description: "Smoky barbecue chips with classic snack aisle appeal."
-  },
-  {
-    name: "Cheddar Puff Snacks",
-    category: "Snacks",
-    casePack: "18 ct case",
-    label: "CHEDDAR",
-    type: "pack",
-    color: "linear-gradient(135deg, #f59e0b, #ea580c)",
-    description: "Cheddar-style puff snacks for everyday retail sales."
-  },
-  {
-    name: "Sour Gummy Belts",
-    category: "Candy",
-    casePack: "12 ct case",
-    label: "SOUR",
-    type: "pack",
-    color: "linear-gradient(135deg, #ec4899, #8b5cf6)",
-    description: "Sour gummy belts with bright colors and strong candy shelf appeal."
-  },
-  {
-    name: "Chamoy Gummy Mix",
-    category: "Candy",
-    casePack: "12 ct case",
-    label: "GUMMY",
-    type: "pack",
-    color: "linear-gradient(135deg, #be123c, #f97316)",
-    description: "Sweet and spicy chamoy-style gummy mix for specialty snack stores."
-  },
-  {
-    name: "Rainbow Candy Bites",
-    category: "Candy",
-    casePack: "24 ct case",
-    label: "CANDY",
-    type: "pack",
-    color: "linear-gradient(135deg, #06b6d4, #ec4899)",
-    description: "Colorful candy bites for checkout counters and candy displays."
-  },
-  {
-    name: "Chocolate Wafer Bars",
-    category: "Candy",
-    casePack: "24 ct case",
-    label: "WAFER",
-    type: "pack",
-    color: "linear-gradient(135deg, #78350f, #f59e0b)",
-    description: "Chocolate wafer bars packed for fast-moving retail sales."
-  },
-  {
-    name: "Sweet Chili Lollipops",
-    category: "Candy",
-    casePack: "48 ct case",
-    label: "POP",
-    type: "pack",
-    color: "linear-gradient(135deg, #ef4444, #facc15)",
-    description: "Sweet and spicy lollipops for candy counters and novelty displays."
-  },
-  {
-    name: "Fruit Jelly Cups",
-    category: "Candy",
-    casePack: "12 ct case",
-    label: "JELLY",
-    type: "pack",
-    color: "linear-gradient(135deg, #10b981, #3b82f6)",
-    description: "Fruit jelly cups with bright packaging and strong snack appeal."
-  },
-  {
-    name: "Classic Cola Soda",
-    category: "Beverages",
-    casePack: "24 ct case",
-    label: "COLA",
-    type: "can",
-    color: "linear-gradient(135deg, #991b1b, #ef4444)",
-    description: "Classic cola-style canned beverage for coolers and drink shelves."
-  },
-  {
-    name: "Mango Sparkling Drink",
-    category: "Beverages",
-    casePack: "24 ct case",
-    label: "MANGO",
-    type: "can",
-    color: "linear-gradient(135deg, #f59e0b, #f97316)",
-    description: "Mango flavored sparkling drink with bright tropical shelf appeal."
-  },
-  {
-    name: "Watermelon Soda",
-    category: "Beverages",
-    casePack: "24 ct case",
-    label: "MELON",
-    type: "can",
-    color: "linear-gradient(135deg, #16a34a, #ef4444)",
-    description: "Watermelon soda for retailers looking for fruit-flavored drinks."
-  },
-  {
-    name: "Grape Fizzy Drink",
-    category: "Beverages",
-    casePack: "24 ct case",
-    label: "GRAPE",
-    type: "can",
-    color: "linear-gradient(135deg, #6d28d9, #a855f7)",
-    description: "Grape flavored fizzy drink packed for cooler placement."
-  },
-  {
-    name: "Strawberry Cream Soda",
-    category: "Beverages",
-    casePack: "24 ct case",
-    label: "CREAM",
-    type: "can",
-    color: "linear-gradient(135deg, #ec4899, #f9a8d4)",
-    description: "Creamy strawberry soda for snack shops and specialty retailers."
-  },
-  {
-    name: "Peach Iced Tea",
-    category: "Beverages",
-    casePack: "12 ct case",
-    label: "TEA",
-    type: "bottle",
-    color: "linear-gradient(135deg, #fb923c, #fef3c7)",
-    description: "Peach iced tea beverage for bottled drink sections."
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --dark: #111827;
+  --cream: #fff7e8;
+  --orange: #ff4d2d;
+  --yellow: #ffd84d;
+  --pink: #ff4fa3;
+  --purple: #7c3aed;
+  --blue: #2563eb;
+  --green: #10b981;
+  --muted: #6b7280;
+  --white: #ffffff;
+  --border: rgba(17, 24, 39, 0.1);
+  --shadow: 0 20px 50px rgba(17, 24, 39, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+.container {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+}
+
+.site-header {
+  background: rgba(255, 247, 232, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.logo-img {
+  width: 225px;
+  height: auto;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.main-nav a:hover {
+  color: var(--orange);
+}
+
+.nav-button,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-size: 15px;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.nav-button {
+  background: var(--dark);
+  color: var(--white);
+}
+
+.button.primary {
+  background: var(--orange);
+  color: var(--white);
+  box-shadow: 0 12px 24px rgba(255, 77, 45, 0.28);
+}
+
+.button.secondary {
+  background: var(--white);
+  border: 2px solid var(--border);
+  color: var(--dark);
+}
+
+.button.white {
+  background: var(--white);
+  color: var(--dark);
+}
+
+.hero {
+  padding: 76px 0 60px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 216, 77, 0.78), transparent 34%),
+    radial-gradient(circle at top right, rgba(255, 79, 163, 0.26), transparent 38%),
+    linear-gradient(180deg, #fff7e8 0%, #fff1d2 100%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.page-hero {
+  padding: 78px 0 54px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 216, 77, 0.7), transparent 34%),
+    linear-gradient(180deg, #fff7e8 0%, #fff1d2 100%);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow.light {
+  color: var(--yellow);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 850px;
+  margin-bottom: 22px;
+  font-size: clamp(48px, 7vw, 84px);
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.hero-badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 38px;
+}
+
+.hero-badges div {
+  padding: 18px;
+  background: var(--white);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.hero-badges strong {
+  display: block;
+  font-size: 28px;
+}
+
+.hero-badges span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.hero-showcase {
+  position: relative;
+  height: 530px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 216, 77, 0.65), transparent 26%),
+    linear-gradient(145deg, #111827, #273449);
+  border-radius: 42px;
+  box-shadow: var(--shadow);
+}
+
+.showcase-card {
+  position: absolute;
+  display: grid;
+  place-items: end center;
+  width: 150px;
+  height: 210px;
+  padding: 24px 16px;
+  border-radius: 26px 26px 18px 18px;
+  box-shadow: 0 28px 48px rgba(0, 0, 0, 0.3);
+}
+
+.showcase-card span {
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 950;
+}
+
+.card-one {
+  top: 78px;
+  left: 68px;
+  background: linear-gradient(135deg, #ef233c, #ff8a00);
+  transform: rotate(-12deg);
+}
+
+.card-two {
+  top: 120px;
+  right: 82px;
+  background: linear-gradient(135deg, #ec4899, #7c3aed);
+  transform: rotate(10deg);
+}
+
+.card-three {
+  left: 196px;
+  top: 220px;
+  width: 118px;
+  height: 210px;
+  background: linear-gradient(135deg, #10b981, #2563eb);
+  border-radius: 22px;
+}
+
+.showcase-label {
+  position: absolute;
+  left: 38px;
+  right: 38px;
+  bottom: 32px;
+  padding: 18px 22px;
+  background: var(--white);
+  border-radius: 24px;
+  text-align: center;
+  font-weight: 950;
+}
+
+.section {
+  padding: 76px 0;
+}
+
+.section-header {
+  max-width: 780px;
+  margin-bottom: 34px;
+}
+
+.section-header.split,
+.catalog-header {
+  max-width: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 34px;
+}
+
+.category-grid,
+.wholesale-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.category-card {
+  min-height: 230px;
+  padding: 34px;
+  color: var(--white);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+
+.category-card p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.category-icon {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 22px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  font-size: 30px;
+}
+
+.category-snacks {
+  background: linear-gradient(135deg, #ff4d2d, #ff8a00);
+}
+
+.category-candy {
+  background: linear-gradient(135deg, #ff4fa3, #7c3aed);
+}
+
+.category-drinks {
+  background: linear-gradient(135deg, #2563eb, #10b981);
+}
+
+.featured-section,
+.catalog-section,
+.contact-section {
+  background: var(--white);
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-button {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.filter-button.active {
+  background: var(--dark);
+  color: var(--white);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.product-card {
+  overflow: hidden;
+  background: var(--cream);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 12px 35px rgba(17, 24, 39, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.product-art {
+  position: relative;
+  height: 220px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.product-art::before {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.pack,
+.can,
+.bottle {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 18px 26px rgba(0, 0, 0, 0.22);
+}
+
+.pack {
+  width: 120px;
+  height: 155px;
+  border-radius: 22px 22px 16px 16px;
+}
+
+.pack::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 84px;
+  height: 38px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.pack::after,
+.can::after,
+.bottle::after {
+  content: attr(data-label);
+  position: absolute;
+  color: white;
+  text-align: center;
+  font-weight: 950;
+}
+
+.pack::after {
+  left: 12px;
+  right: 12px;
+  bottom: 28px;
+  font-size: 16px;
+}
+
+.can {
+  width: 86px;
+  height: 165px;
+  border-radius: 18px;
+}
+
+.can::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  width: 66px;
+  height: 22px;
+  background: #e5e7eb;
+  border-radius: 50%;
+}
+
+.can::after {
+  top: 62px;
+  left: 8px;
+  right: 8px;
+  font-size: 15px;
+}
+
+.bottle {
+  width: 82px;
+  height: 178px;
+  border-radius: 26px 26px 18px 18px;
+}
+
+.bottle::before {
+  content: "";
+  position: absolute;
+  top: -28px;
+  left: 22px;
+  width: 38px;
+  height: 40px;
+  background: inherit;
+  border-radius: 12px 12px 4px 4px;
+}
+
+.bottle::after {
+  top: 72px;
+  left: 8px;
+  right: 8px;
+  font-size: 14px;
+}
+
+.product-body {
+  padding: 20px;
+}
+
+.product-body h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.product-description {
+  min-height: 44px;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.product-cta {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(17, 24, 39, 0.1);
+  color: var(--orange);
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.wholesale-band {
+  background: var(--dark);
+  color: var(--white);
+}
+
+.wholesale-band p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.band-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 30px;
+}
+
+.info-card,
+.about-card,
+.contact-form {
+  padding: 34px;
+  background: var(--white);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+
+.about-grid,
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.about-card ul {
+  margin: 0;
+  padding-left: 20px;
+  font-weight: 850;
+  line-height: 2;
+}
+
+.contact-list {
+  margin-top: 24px;
+}
+
+.contact-list a {
+  color: var(--orange);
+  font-weight: 950;
+}
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  font-weight: 950;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  outline: none;
+  font-size: 15px;
+}
+
+.site-footer {
+  padding: 38px 0;
+  background: var(--dark);
+  color: var(--white);
+}
+
+.footer-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.footer-logo {
+  width: 190px;
+  height: auto;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.site-footer p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+}
+
+.modal.open {
+  display: block;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.72);
+}
+
+.modal-content {
+  position: relative;
+  width: min(760px, calc(100% - 36px));
+  max-height: calc(100vh - 60px);
+  overflow: auto;
+  margin: 30px auto;
+  background: var(--white);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--dark);
+  color: var(--white);
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.modal-product {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.modal-product .product-art {
+  min-height: 430px;
+}
+
+.modal-info {
+  padding: 44px 38px;
+}
+
+.modal-details div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.1);
+}
+
+@media (max-width: 980px) {
+  .main-nav {
+    display: none;
   }
-];
 
-const productGrid = document.getElementById("productGrid");
-const featuredGrid = document.getElementById("featuredGrid");
-const filterButtons = document.querySelectorAll(".filter-button");
-const modal = document.getElementById("productModal");
-const modalBody = document.getElementById("modalBody");
-const closeModalButtons = document.querySelectorAll("[data-close-modal]");
-
-function productCard(product) {
-  const card = document.createElement("article");
-  card.className = "product-card";
-  card.setAttribute("tabindex", "0");
-  card.setAttribute("role", "button");
-
-  card.innerHTML = `
-    <div class="product-art" style="background:${product.color}">
-      <div class="${product.type}" data-label="${product.label}" style="background:${product.color}"></div>
-    </div>
-    <div class="product-body">
-      <h3>${product.name}</h3>
-      <p class="product-description">${product.description}</p>
-      <div class="product-meta">
-        <span>${product.category}</span>
-        <span>${product.casePack}</span>
-      </div>
-      <div class="product-cta">View wholesale details</div>
-    </div>
-  `;
-
-  card.addEventListener("click", () => openProductModal(product));
-  card.addEventListener("keydown", event => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      openProductModal(product);
-    }
-  });
-
-  return card;
-}
-
-function renderProducts(category = "All") {
-  if (!productGrid) return;
-
-  productGrid.innerHTML = "";
-
-  const filteredProducts =
-    category === "All"
-      ? products
-      : products.filter(product => product.category === category);
-
-  filteredProducts.forEach(product => {
-    productGrid.appendChild(productCard(product));
-  });
-}
-
-function renderFeaturedProducts() {
-  if (!featuredGrid) return;
-
-  featuredGrid.innerHTML = "";
-  products.slice(0, 8).forEach(product => {
-    featuredGrid.appendChild(productCard(product));
-  });
-}
-
-function openProductModal(product) {
-  if (!modal || !modalBody) return;
-
-  modalBody.innerHTML = `
-    <div class="modal-product">
-      <div class="product-art" style="background:${product.color}">
-        <div class="${product.type}" data-label="${product.label}" style="background:${product.color}"></div>
-      </div>
-
-      <div class="modal-info">
-        <span class="eyebrow">${product.category}</span>
-        <h2>${product.name}</h2>
-        <p>${product.description}</p>
-
-        <div class="modal-details">
-          <div><strong>Category</strong><span>${product.category}</span></div>
-          <div><strong>Case Pack</strong><span>${product.casePack}</span></div>
-          <div><strong>Pricing</strong><span>Available upon request</span></div>
-          <div><strong>Wholesale</strong><span>B2B buyers only</span></div>
-        </div>
-
-        <a class="button primary" href="mailto:sales@bulkmunchies.com?subject=Wholesale Inquiry - ${encodeURIComponent(product.name)}">
-          Request Pricing
-        </a>
-      </div>
-    </div>
-  `;
-
-  modal.classList.add("open");
-  document.body.style.overflow = "hidden";
-}
-
-function closeModal() {
-  if (!modal) return;
-  modal.classList.remove("open");
-  document.body.style.overflow = "";
-}
-
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach(item => item.classList.remove("active"));
-    button.classList.add("active");
-    renderProducts(button.dataset.filter);
-  });
-});
-
-closeModalButtons.forEach(button => {
-  button.addEventListener("click", closeModal);
-});
-
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && modal && modal.classList.contains("open")) {
-    closeModal();
+  .hero-grid,
+  .about-grid,
+  .contact-grid,
+  .band-grid,
+  .modal-product {
+    grid-template-columns: 1fr;
   }
-});
 
-renderProducts();
-renderFeaturedProducts();
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-grid,
+  .wholesale-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header.split,
+  .catalog-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hero-showcase {
+    height: 430px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .logo-img {
+    width: 175px;
+  }
+
+  .nav-button {
+    display: none;
+  }
+
+  h1 {
+    font-size: 46px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  .hero-showcase {
+    display: none;
+  }
+
+  .hero-badges,
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

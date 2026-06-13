@@ -3,256 +3,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Bulk Munchies | Wholesale Snacks, Candy & Beverages</title>
-  <meta
-    name="description"
-    content="Bulk Munchies is a wholesale supplier of snacks, candy, and beverages for retailers, snack shops, specialty stores, and online sellers."
-  />
-
+  <meta name="description" content="Bulk Munchies supplies wholesale snacks, candy, and beverages for retailers, snack shops, gift stores, and online sellers." />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#" class="logo-link" aria-label="Bulk Munchies Home">
-        <img src="assets/logo.png" alt="Bulk Munchies Logo" class="logo-img" />
-      </a>
 
-      <nav class="main-nav">
-        <a href="#catalog">Catalog</a>
-        <a href="#categories">Categories</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo-link">
+      <img src="assets/logo.png" alt="Bulk Munchies Logo" class="logo-img" />
+    </a>
 
-      <a class="nav-button" href="mailto:sales@bulkmunchies.com">
-        Wholesale Inquiry
-      </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="wholesale.html">Wholesale</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="nav-button" href="contact.html">Request Pricing</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Wholesale Snacks • Candy • Beverages</span>
+        <h1>Bulk snacks built for shelves that move.</h1>
+        <p>
+          Bulk Munchies supplies retailers with snacks, candy, and beverages made for snack shelves,
+          coolers, checkout counters, and online shops.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="products.html">Shop Products</a>
+          <a class="button secondary" href="wholesale.html">Wholesale Info</a>
+        </div>
+
+        <div class="hero-badges">
+          <div><strong>20+</strong><span>Featured SKUs</span></div>
+          <div><strong>B2B</strong><span>Wholesale Focus</span></div>
+          <div><strong>3</strong><span>Main Categories</span></div>
+        </div>
+      </div>
+
+      <div class="hero-showcase">
+        <div class="showcase-card card-one"><span>Spicy Chips</span></div>
+        <div class="showcase-card card-two"><span>Sweet Candy</span></div>
+        <div class="showcase-card card-three"><span>Cold Drinks</span></div>
+        <div class="showcase-label">Retail-ready snacks, candies, and beverages.</div>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Wholesale Snacks • Candy • Beverages</span>
-          <h1>Bulk snacks built for shelves that move.</h1>
-          <p>
-            Bulk Munchies supplies retailers with popular snacks, candies, and beverages
-            for snack shops, gift stores, specialty retailers, and online sellers.
-          </p>
-
-          <div class="hero-actions">
-            <a class="button primary" href="#catalog">View Catalog</a>
-            <a class="button secondary" href="#contact">Request Pricing</a>
-          </div>
-
-          <div class="hero-badges">
-            <div>
-              <strong>20+</strong>
-              <span>Sample SKUs</span>
-            </div>
-            <div>
-              <strong>B2B</strong>
-              <span>Wholesale Focus</span>
-            </div>
-            <div>
-              <strong>3</strong>
-              <span>Main Categories</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-showcase">
-          <div class="showcase-card card-one">
-            <span>Spicy Chips</span>
-          </div>
-          <div class="showcase-card card-two">
-            <span>Sweet Candy</span>
-          </div>
-          <div class="showcase-card card-three">
-            <span>Cold Drinks</span>
-          </div>
-          <div class="showcase-label">
-            Retail-ready products for snack shelves, coolers, and checkout counters.
-          </div>
-        </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Categories</span>
+        <h2>Products made for snack retailers.</h2>
       </div>
-    </section>
 
-    <section id="categories" class="section categories-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Shop by category</span>
-          <h2>Wholesale categories retailers actually need.</h2>
-          <p>
-            A focused catalog of snacks, candy, and beverages with simple wholesale presentation.
-          </p>
-        </div>
+      <div class="category-grid">
+        <a class="category-card category-snacks" href="products.html">
+          <div class="category-icon">🌶️</div>
+          <h3>Snacks & Chips</h3>
+          <p>Hot chips, crunchy snacks, puffs, rings, and party bags.</p>
+        </a>
 
-        <div class="category-grid">
-          <article class="category-card category-snacks">
-            <div class="category-icon">🌶️</div>
-            <h3>Snacks & Chips</h3>
-            <p>Crunchy snacks, hot chips, party bags, and bold flavor items.</p>
-          </article>
+        <a class="category-card category-candy" href="products.html">
+          <div class="category-icon">🍬</div>
+          <h3>Candy & Gummies</h3>
+          <p>Sweet, sour, chocolate, chewy, and sweet-spicy candy.</p>
+        </a>
 
-          <article class="category-card category-candy">
-            <div class="category-icon">🍬</div>
-            <h3>Candy & Gummies</h3>
-            <p>Sweet, sour, chewy, chocolate, spicy candy, and gummies.</p>
-          </article>
-
-          <article class="category-card category-drinks">
-            <div class="category-icon">🥤</div>
-            <h3>Beverages</h3>
-            <p>Sodas, flavored drinks, juices, teas, and cooler-ready beverages.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="catalog" class="section catalog-section">
-      <div class="container">
-        <div class="section-header catalog-header">
-          <div>
-            <span class="eyebrow">Wholesale catalog</span>
-            <h2>Featured Products</h2>
-            <p>
-              Sample product catalog for wholesale buyers. Case pricing available upon request.
-            </p>
-          </div>
-
-          <div class="filter-buttons">
-            <button class="filter-button active" data-filter="All">All</button>
-            <button class="filter-button" data-filter="Snacks">Snacks</button>
-            <button class="filter-button" data-filter="Candy">Candy</button>
-            <button class="filter-button" data-filter="Beverages">Beverages</button>
-          </div>
-        </div>
-
-        <div id="productGrid" class="product-grid"></div>
-      </div>
-    </section>
-
-    <section class="section wholesale-section">
-      <div class="container wholesale-grid">
-        <div>
-          <span class="eyebrow light">Wholesale buyers</span>
-          <h2>Need a line sheet or case pricing?</h2>
-          <p>
-            Send us your business name, store type, and the products you are interested in.
-            We’ll provide current availability and wholesale pricing.
-          </p>
-        </div>
-
-        <a class="button white" href="mailto:sales@bulkmunchies.com">
-          Email Sales Team
+        <a class="category-card category-drinks" href="products.html">
+          <div class="category-icon">🥤</div>
+          <h3>Beverages</h3>
+          <p>Sodas, juices, teas, flavored drinks, and cooler-ready beverages.</p>
         </a>
       </div>
-    </section>
-
-    <section id="about" class="section about-section">
-      <div class="container about-grid">
-        <div>
-          <span class="eyebrow">About Bulk Munchies</span>
-          <h2>A wholesale snack supplier for modern retailers.</h2>
-          <p>
-            Bulk Munchies focuses on snacks, candy, and beverages that work well for
-            independent retailers, snack shops, specialty stores, gift shops, and online sellers.
-          </p>
-          <p>
-            Our catalog is built around shelf appeal, variety, and products customers love to discover.
-          </p>
-        </div>
-
-        <div class="about-card">
-          <h3>What we supply</h3>
-          <ul>
-            <li>Chips and crunchy snacks</li>
-            <li>Chocolate, gummies, sour candy, and sweet candy</li>
-            <li>Mexican candy and sweet-spicy items</li>
-            <li>Bottled and canned beverages</li>
-            <li>Seasonal and trending snack items</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact-section">
-      <div class="container contact-grid">
-        <div>
-          <span class="eyebrow">Contact</span>
-          <h2>Wholesale inquiries</h2>
-          <p>
-            Interested in carrying Bulk Munchies products? Contact us for availability,
-            wholesale pricing, and product information.
-          </p>
-
-          <div class="contact-list">
-            <p><strong>Email:</strong> <a href="mailto:sales@bulkmunchies.com">sales@bulkmunchies.com</a></p>
-            <p><strong>Phone:</strong> <a href="tel:17734130406">773-413-0406</a></p>
-            <p><strong>Website:</strong> bulkmunchies.com</p>
-          </div>
-        </div>
-
-        <form class="contact-form" action="mailto:sales@bulkmunchies.com" method="post" enctype="text/plain">
-          <label>
-            Business Name
-            <input type="text" name="business_name" placeholder="Your store name" />
-          </label>
-
-          <label>
-            Email
-            <input type="email" name="email" placeholder="you@business.com" />
-          </label>
-
-          <label>
-            Product Interest
-            <select name="product_interest">
-              <option>Full wholesale catalog</option>
-              <option>Snacks</option>
-              <option>Candy</option>
-              <option>Beverages</option>
-            </select>
-          </label>
-
-          <label>
-            Message
-            <textarea name="message" rows="5" placeholder="Tell us what products you are looking for"></textarea>
-          </label>
-
-          <button class="button primary" type="submit">Send Inquiry</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <img src="assets/logo.png" alt="Bulk Munchies Logo" class="footer-logo" />
-        <p>Wholesale snacks, candy, and beverages for retailers.</p>
-      </div>
-
-      <div class="footer-contact">
-        <p><strong>Bulk Munchies</strong></p>
-        <p><a href="mailto:sales@bulkmunchies.com">sales@bulkmunchies.com</a></p>
-        <p><a href="tel:17734130406">773-413-0406</a></p>
-      </div>
     </div>
-  </footer>
+  </section>
 
-  <div id="productModal" class="modal">
-    <div class="modal-backdrop" data-close-modal></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close-modal>×</button>
-      <div id="modalBody"></div>
+  <section class="section featured-section">
+    <div class="container">
+      <div class="section-header split">
+        <div>
+          <span class="eyebrow">Featured</span>
+          <h2>Popular wholesale items</h2>
+        </div>
+        <a class="button secondary" href="products.html">View Full Catalog</a>
+      </div>
+
+      <div id="featuredGrid" class="product-grid"></div>
+    </div>
+  </section>
+
+  <section class="section wholesale-band">
+    <div class="container band-grid">
+      <div>
+        <span class="eyebrow light">Wholesale buyers</span>
+        <h2>Need case pricing or a line sheet?</h2>
+        <p>Send your business info and product interest. We’ll provide availability and wholesale pricing.</p>
+      </div>
+      <a class="button white" href="contact.html">Contact Sales</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/logo.png" alt="Bulk Munchies Logo" class="footer-logo" />
+      <p>Wholesale snacks, candy, and beverages for retailers.</p>
+    </div>
+
+    <div>
+      <p><strong>Bulk Munchies</strong></p>
+      <p><a href="mailto:sales@bulkmunchies.com">sales@bulkmunchies.com</a></p>
+      <p><a href="tel:17734130406">773-413-0406</a></p>
     </div>
   </div>
+</footer>
 
-  <script src="script.js"></script>
+<div id="productModal" class="modal">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close-modal>×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

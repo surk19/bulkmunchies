@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Bulk Munchies</title>
+  <meta name="description" content="View the Bulk Munchies wholesale catalog featuring snacks, candy, and beverages." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo-link">
+      <img src="assets/logo.png" alt="Bulk Munchies Logo" class="logo-img" />
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="wholesale.html">Wholesale</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="nav-button" href="contact.html">Request Pricing</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Wholesale Catalog</span>
+      <h1>Snacks, candy, and beverages for retailers.</h1>
+      <p>Browse sample wholesale products. Case pricing available upon request.</p>
+    </div>
+  </section>
+
+  <section class="section catalog-section">
+    <div class="container">
+      <div class="catalog-header">
+        <div>
+          <h2>Product Catalog</h2>
+          <p>Filter by category below.</p>
+        </div>
+
+        <div class="filter-buttons">
+          <button class="filter-button active" data-filter="All">All</button>
+          <button class="filter-button" data-filter="Snacks">Snacks</button>
+          <button class="filter-button" data-filter="Candy">Candy</button>
+          <button class="filter-button" data-filter="Beverages">Beverages</button>
+        </div>
+      </div>
+
+      <div id="productGrid" class="product-grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/logo.png" alt="Bulk Munchies Logo" class="footer-logo" />
+      <p>Wholesale snacks, candy, and beverages for retailers.</p>
+    </div>
+
+    <div>
+      <p><strong>Bulk Munchies</strong></p>
+      <p><a href="mailto:sales@bulkmunchies.com">sales@bulkmunchies.com</a></p>
+      <p><a href="tel:17734130406">773-413-0406</a></p>
+    </div>
+  </div>
+</footer>
+
+<div id="productModal" class="modal">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close-modal>×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

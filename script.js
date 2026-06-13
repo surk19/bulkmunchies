@@ -74,7 +74,7 @@ const products = [
     category: "Snacks",
     casePack: "24 ct case",
     image: "assets/products/fab-orange.jpg",
-    description: "Orange cream filled cookie sandwiches with bright packaging and strong snack appeal."
+    description: "Orange cream filled cookie sandwiches with bright packaging and snack appeal."
   },
   {
     name: "Parle Fab Chocolate Cookies",
@@ -170,7 +170,7 @@ function productCard(product) {
 
   card.innerHTML = `
     <div class="product-image-wrap">
-      <img src="${product.image}" alt="${product.name}" class="product-image" />
+      <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.onerror=null; this.src='assets/logo.png';" />
     </div>
     <div class="product-body">
       <h3>${product.name}</h3>
@@ -184,6 +184,7 @@ function productCard(product) {
   `;
 
   card.addEventListener("click", () => openProductModal(product));
+
   card.addEventListener("keydown", event => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -225,7 +226,7 @@ function openProductModal(product) {
   modalBody.innerHTML = `
     <div class="modal-product">
       <div class="modal-image-wrap">
-        <img src="${product.image}" alt="${product.name}" class="modal-image" />
+        <img src="${product.image}" alt="${product.name}" class="modal-image" onerror="this.onerror=null; this.src='assets/logo.png';" />
       </div>
 
       <div class="modal-info">

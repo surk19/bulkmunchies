@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   sync:
-    if: github.repository == 'surk19/bulkmunchies'
+    if: github.repository == 'surk19/trndstation'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -6,7 +6,7 @@ Glassmorphic wholesale catalog: 32 Faire products with public case pricing, sugg
 
 - Website: https://bulkmunchies.com
 - Faire: https://bulkmunchies.faire.com
-- Phone: 773-413-0406
+- Phone: 630-538-3934
 
 ## Files
 - `index.html` page markup

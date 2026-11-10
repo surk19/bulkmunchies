@@ -2,7 +2,7 @@
 
 Your Source for Exotic Snacks and Drinks, Wholesale
 
-Glassmorphic wholesale catalog: 29 Faire products with public case pricing, suggested retail, search and filters, an add-to-quote cart, and a wholesale application. Forms send through FormSubmit to help@bulkmunchies.com.
+Glassmorphic wholesale catalog: 32 Faire products with public case pricing, suggested retail, search and filters, an add-to-quote cart, and a wholesale application. Forms send through FormSubmit to help@bulkmunchies.com.
 
 - Website: https://bulkmunchies.com
 - Faire: https://bulkmunchies.faire.com

@@ -41,7 +41,7 @@ const R=[
 ['pjmngbp3ug','Royal Family Mochi - Peanut Butter 180Gx12','Mochi','Taiwan',12,3.99,6.49,'assets/products/17-royal-family-mochi-peanut-butter-180gx12.webp'],
 ['y7zxpesmdu','Royal Family Mochi - Salted Caramel 180Gx12','Mochi','Taiwan',12,3.99,6.49,'assets/products/18-royal-family-mochi-salted-caramel-180gx12.webp'],
 ['htf3pzaf6k','Royal Family Mochi - Tiramisu & Creme 180Gx12','Mochi','Taiwan',12,3.99,6.49,'assets/products/19-royal-family-mochi-tiramisu-creme-180gx12.webp'],
-['hdfku282dv','Royal Family Mochi - Vanilla Creme 180G','Mochi','Taiwan',1,3.99,6.49,'assets/products/20-royal-family-mochi-vanilla-creme-180gx12.webp','item'],
+['hdfku282dv','Royal Family Mochi - Vanilla Creme 180Gx12','Mochi','Taiwan',12,3.99,6.49,'assets/products/20-royal-family-mochi-vanilla-creme-180gx12.webp'],
 ['t6n6nra8a4','Snickers Coffee Chocolate Bar 44gx24','Chocolate','Australia',24,3.16,5.99,'assets/products/30-snickers-coffee-chocolate-bar-44gx24.webp'],
 ['t7jcdjzhgx','Sting Energy Berry Blast 250mlx12','Energy Drink','Pakistan',12,2.99,4.99,'e2ebd38b3e9bf383e9794c99899284a6534db3fb5a0902a4ea45513fad6eb0e7.jpeg'],
 ['rgzywescd8','Thums Up Soda 300mlx12','Soda','India',12,1.99,3.99,'5e19de1051095e76c725325fdf1d11a611d3f9f091fa646272cebea36fb2f86d.jpeg'],

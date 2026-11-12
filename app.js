@@ -32,7 +32,7 @@ const R=[
 ['4g8neftpq3','Parle Hide & Seek Fab Orange 100gx12','Cookie','India',12,1.99,3.99,'08b1294220bdd4f9f11eb95fa4f28e5832435be83d99ac790ccce9646e2ced4c.jpeg'],
 ['73nbma36ym','Parle Hide & Seek Fab Strawberry 100gx12','Cookie','India',12,1.99,3.99,'15cbd1beac7faade558678167910fa89c9a152dfc6a66149991d219a45b8bb85.jpeg'],
 ['tnrs6nr2mg','Parle Hide & Seek Fab Vanilla 100gx12','Cookie','India',12,1.99,3.99,'6dfe7654a8a095754f0c515ee979753314bc0aeb5f825c0eac2066a5e2631f16.jpeg'],
-['ebev92kf3m','Parle-G Gluco Biscuits 56gx12','Cookie','India',12,.60,.99,'150478bc2ba9405f310c5d0c0a345e4bbfe83411495ace2761f8e8486acfe2f3.jpeg'],
+['ebev92kf3m','Parle-G Gluco Biscuits 56gx12','Cookie','India',12,.55,.99,'150478bc2ba9405f310c5d0c0a345e4bbfe83411495ace2761f8e8486acfe2f3.jpeg'],
 ['3q9pcfmmvy','Royal Family Mochi - Strawberry Cheese Cake 180gX12','Mochi','Taiwan',12,3.99,6.49,'assets/products/12-royal-family-mochi-strawberry-cheese-cake-180gx12.webp'],
 ['nshpwjkpy7','Royal Family Mochi - Chocolate 180Gx12','Mochi','Taiwan',12,3.99,6.49,'assets/products/13-royal-family-mochi-chocolate-180gx12.webp'],
 ['ph3jakrwsm','Royal Family Mochi - Creamy Coconut 180Gx12','Mochi','Taiwan',12,3.99,6.49,'assets/products/14-royal-family-mochi-creamy-coconut-180gx12.webp'],

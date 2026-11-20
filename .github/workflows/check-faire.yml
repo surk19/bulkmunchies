@@ -1,0 +1,32 @@
+name: Check Faire connection
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Faire product access without publishing
+        env:
+          FAIRE_ACCESS_TOKEN: ${{ secrets.FAIRE_ACCESS_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, urllib.request, urllib.error
+          token = os.environ.get('FAIRE_ACCESS_TOKEN', '').strip()
+          if not token:
+              sys.exit('FAIRE_ACCESS_TOKEN is missing or empty')
+          req = urllib.request.Request(
+              'https://www.faire.com/external-api/v2/products?limit=1&page=1',
+              headers={'X-FAIRE-ACCESS-TOKEN': token, 'Accept': 'application/json'})
+          try:
+              with urllib.request.urlopen(req, timeout=60) as response:
+                  data = json.load(response)
+          except urllib.error.HTTPError as error:
+              sys.exit(f'Faire API returned HTTP {error.code}; no website files changed')
+          except Exception:
+              sys.exit('Faire connection or response failed; no website files changed')
+          if not isinstance(data, dict) or not isinstance(data.get('products'), list):
+              sys.exit('Unexpected Faire response format; no website files changed')
+          print(f'Faire connection successful. Sample products returned: {len(data["products"])}. No website files changed.')
+          PY

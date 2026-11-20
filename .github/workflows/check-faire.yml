@@ -11,49 +11,47 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: Test Faire access
-        id: faire
+      - name: Diagnose Faire and report safely
         env:
           FAIRE_ACCESS_TOKEN: ${{ secrets.FAIRE_ACCESS_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           python3 - <<'PY'
-          import json, os, urllib.request, urllib.error
+          import json, os, re, sys, urllib.request, urllib.error
           token = os.environ.get('FAIRE_ACCESS_TOKEN', '').strip()
-          status = 'FAIL: FAIRE_ACCESS_TOKEN is missing or empty'
-          if token:
-              req = urllib.request.Request('https://www.faire.com/external-api/v2/products?limit=1&page=1', headers={'X-FAIRE-ACCESS-TOKEN': token, 'Accept': 'application/json'})
-              try:
-                  with urllib.request.urlopen(req, timeout=60) as response:
-                      data = json.load(response)
-                  status = 'PASS: Faire product API accepted the key' if isinstance(data, dict) and isinstance(data.get('products'), list) else 'FAIL: Unexpected response format'
-              except urllib.error.HTTPError as error:
-                  status = f'FAIL: Faire API HTTP {error.code}'
-              except Exception:
-                  status = 'FAIL: Connection or response could not be processed'
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
-              output.write('result=' + status + '\n')
-          print(status)
+          results, passed = [], False
+          def safe(value):
+              text = str(value).replace(token, '[REDACTED]') if token else str(value)
+              return re.sub(r'[A-Za-z0-9_+/=-]{24,}', '[REDACTED]', text)[:800]
+          if not token:
+              results.append('FAIL: Missing FAIRE_ACCESS_TOKEN')
+          else:
+              for query in ['', '?limit=50', '?limit=250&page=1']:
+                  req = urllib.request.Request('https://www.faire.com/external-api/v2/products' + query, headers={'X-FAIRE-ACCESS-TOKEN': token, 'Accept': 'application/json'})
+                  try:
+                      with urllib.request.urlopen(req, timeout=45) as response:
+                          data = json.load(response)
+                      if isinstance(data, dict) and isinstance(data.get('products'), list):
+                          results.append('PASS: products' + query + '; returned products: ' + str(len(data['products'])))
+                          passed = True
+                          break
+                      results.append('FAIL: Unexpected response format')
+                  except urllib.error.HTTPError as error:
+                      detail = 'No structured error message'
+                      try:
+                          payload = json.loads(error.read(8192))
+                          if isinstance(payload, dict):
+                              detail = '; '.join(str(payload[k]) for k in ['code', 'error_code', 'message', 'error', 'errors'] if k in payload)
+                      except Exception:
+                          pass
+                      results.append('FAIL: products' + query + '; HTTP ' + str(error.code) + '; ' + safe(detail))
+                  except Exception:
+                      results.append('FAIL: Connection or response processing error')
+          report = '\n'.join(results)
+          body = report + '\n\nCommit: ' + os.environ['GITHUB_SHA'] + '\nNo website files changed. API key redacted; product contents omitted.'
+          request = urllib.request.Request('https://api.github.com/repos/' + os.environ['GITHUB_REPOSITORY'] + '/issues', data=json.dumps({'title': 'Faire diagnostic: run ' + os.environ['GITHUB_RUN_ID'], 'body': body}).encode(), headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json'}, method='POST')
+          with urllib.request.urlopen(request, timeout=45) as response:
+              response.read()
+          print(report)
+          sys.exit(0 if passed else 1)
           PY
-      - name: Publish safe result for connector
-        if: always()
-        uses: actions/github-script@v7
-        env:
-          FAIRE_RESULT: ${{ steps.faire.outputs.result }}
-        with:
-          script: |
-            const result = process.env.FAIRE_RESULT || 'FAIL: Test did not produce a result';
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: 'Faire connection check: run ' + context.runId,
-              body: result + '\n\nCommit: ' + context.sha + '\nRun: ' + context.serverUrl + '/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId + '\nNo website files changed. No API key or product data included.'
-            });
-      - name: Fail job if connection failed
-        if: always()
-        env:
-          FAIRE_RESULT: ${{ steps.faire.outputs.result }}
-        run: |
-          case "$FAIRE_RESULT" in
-            PASS:*) exit 0 ;;
-            *) exit 1 ;;
-          esac

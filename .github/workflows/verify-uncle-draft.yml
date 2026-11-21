@@ -1,0 +1,42 @@
+name: Verify Uncle Chipps draft read only
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/verify-uncle-draft.yml']
+permissions:
+  contents: read
+  issues: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        env:
+          FAIRE_ACCESS_TOKEN: ${{ secrets.FAIRE_ACCESS_TOKEN }}
+        with:
+          script: |
+            const token = (process.env.FAIRE_ACCESS_TOKEN || '').trim();
+            let report = [];
+            try {
+              if (!token) throw new Error('Missing Faire secret');
+              let path = '/products';
+              const seen = new Set();
+              for (let n = 0; n < 100; n++) {
+                const response = await fetch('https://www.faire.com/external-api/v2' + path, {headers: {'X-FAIRE-ACCESS-TOKEN': token, Accept: 'application/json'}, signal: AbortSignal.timeout(45000)});
+                if (!response.ok) throw new Error('Catalog GET HTTP ' + response.status);
+                const data = await response.json();
+                if (!Array.isArray(data.products)) throw new Error('Unexpected catalog format');
+                report.push('Page ' + n + ' keys: ' + Object.keys(data).join(', ') + '; count: ' + data.products.length);
+                for (const p of data.products.filter(p => /uncle/i.test(p.name || '') && /chip/i.test(p.name || ''))) {
+                  report.push('MATCH: ' + JSON.stringify({id:p.id, name:p.name, lifecycle_state:p.lifecycle_state, unit_multiplier:p.unit_multiplier, minimum_order_quantity:p.minimum_order_quantity, variants:(p.variants || []).map(v => ({id:v.id, prices:v.prices, wholesale_price_cents:v.wholesale_price_cents, retail_price_cents:v.retail_price_cents}))}));
+                }
+                const signature = data.products.map(p => p.id).join(',');
+                if (data.products.length && seen.has(signature)) throw new Error('Pagination repeated');
+                seen.add(signature);
+                if (data.cursor) path = '/products?cursor=' + encodeURIComponent(data.cursor);
+                else if (data.products.length < (data.limit || 50)) {report.push('Catalog scan complete'); break;}
+                else if (Number.isInteger(data.page)) path = '/products?page=' + (data.page + 1);
+                else throw new Error('Pagination metadata unavailable');
+              }
+            } catch (error) {report.push('STOPPED: ' + error.message);}
+            await github.rest.issues.create({owner:context.repo.owner, repo:context.repo.repo, title:'Read-only Uncle Chipps verification: run ' + context.runId, body:report.join('\n\n') + '\nNo Faire writes attempted. Commit: ' + context.sha});
